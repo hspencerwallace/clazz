@@ -11,19 +11,6 @@ that has many bouncing balls.
 also change the name of your class to reflect your sketch better
 */
 
-
-//add the current speed to the location
-// x = x + xspeed;
-// y = y + yspeed;
-
-// if ((this.x > width) || (this.x < 0)) {
-// 	xspeed = xspeed * -1;
-// }
-
-// if ((this.y > height) || (this.y < 0)) {
-// 	yspeed = yspeed * -1;
-// }
-
 //display circle at x location
 // stroke(0)
 // strokeWeight(2);
@@ -35,14 +22,17 @@ also change the name of your class to reflect your sketch better
 let ball;
 let ballPic;
 let balls = [];
-let howManyBalls = 200;
+let howManyBalls = 100;
 
 let mouseBoxX;
 let mouseBoxY;
 
 function setup(){
-	createCanvas(710, 400);
+	// createCanvas(710, 400, WEBGL);
+  createCanvas(710, 400);
+
 	ballPic = loadImage('lock.png');
+  keyPic = loadImage('key.png')
 
 	ball = new Ball();
 
@@ -61,12 +51,14 @@ for (let i = 0; i <howManyBalls; i++){
 		balls[i].display();
 
 	}
-  rect(mouseBoxX, mouseBoxY, 50, 50);
+  image(keyPic, mouseBoxX, mouseBoxY, 100, 100);
+
 }
 
 function mousePressed(){
 mouseBoxX = mouseX;
 mouseBoxY = mouseY;
+ponies[whichpony]
 
 }
 
@@ -104,6 +96,10 @@ this.yspeed = this.yspeed + 10
     }
 
 	}
+  teleportPony(xLoc, yLoc){
+this.x
+
+  }
 
 }
 
