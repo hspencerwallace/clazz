@@ -22,14 +22,20 @@ also change the name of your class to reflect your sketch better
 let ball;
 let ballPic;
 let balls = [];
-let howManyBalls = 100;
+let howManyBalls = 50;
 
 let mouseBoxX;
 let mouseBoxY;
 
+let lwidth = 500;
+let lheight = 500;
+
+
 function setup(){
 	// createCanvas(710, 400, WEBGL);
-  createCanvas(710, 400);
+  createCanvas(windowWidth, windowHeight);
+
+  background(45, 210, 247);
 
 	ballPic = loadImage('lock.png');
   keyPic = loadImage('key.png')
@@ -42,6 +48,7 @@ function setup(){
 }
 
 function draw(){
+
 
 ball.display();
 ball.move();
@@ -67,12 +74,13 @@ class Ball {
 	constructor(){
 		this.x = random(width);
 		this.y = random(height);
-		this.xspeed = random(0, 1);
-		this.yspeed = random(0, 1);
+		this.xspeed = random(-0.5, 0.5);
+		this.yspeed = random(-0.5, 0.5);
 	}
 
 	display(){
-		image(ballPic, this.x, this.y, 75, 75);
+    imageMode(CENTER);
+		image(ballPic, this.x, this.y, lwidth, lheight);
 	}
 
 	move(){
@@ -90,8 +98,14 @@ class Ball {
     if ((this.x > mouseBoxX && this.x < (mouseBoxX + 50))&&
       (this.y > mouseBoxY && this.y < (mouseBoxY + 50))){
 
-this.xspeed = this.xspeed + 10
-this.yspeed = this.yspeed + 10
+this.xspeed = this.xspeed + 1;
+this.yspeed = this.yspeed + 1;
+
+lwidth -= 4.1;
+lheight -= 4.1;
+
+
+
 
     }
 
